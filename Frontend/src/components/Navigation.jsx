@@ -16,7 +16,16 @@ const Navigation = () => {
       <ul className="navbar">
         {NAVIGATION.map((element) => {
             return (
-              <li key={element} onClick={() => {onSelectNav(element);}} className="capitalize">
+              <li
+                key={element}
+                onClick={() => {
+                  onSelectNav(element);
+                }}
+                className="capitalize"
+                style={{
+                    backgroundColor: nav === element ? 'rgb(173, 40, 40)':'transparent' 
+                }}
+              >
                 {element}
               </li>
             );
