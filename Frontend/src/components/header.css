@@ -8,9 +8,6 @@ padding: 0 10px;
 .brand-name-logo{
     font-size: 40px;
 }
-.navigation-bar{
-
-}
 .search-box{
     display: flex;
     flex-direction: column;
