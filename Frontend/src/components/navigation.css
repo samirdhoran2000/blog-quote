@@ -1,0 +1,20 @@
+.navbar{
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+padding: 1px 5px;
+background-color: rgb(97, 6, 6);
+gap: 55px;
+border-radius: 10px;
+}
+
+ul li{
+    font-size: 25px;
+    border-radius: 10px;
+    padding: 2px 4px;
+    cursor: pointer;
+}
+ul li:hover{
+    background-color: rgb(173, 40, 40);
+    /* color:aliceblue; */
+}
