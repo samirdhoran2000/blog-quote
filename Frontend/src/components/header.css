@@ -32,7 +32,7 @@ width: 220px;
 .inside-search input:focus{
     outline: none;
 }
-/* .search-icon{
-    width: 100px;
-    height: 100px;
-} */
+
+.inside-search input::placeholder{
+    color: rgba(255, 255, 255, 0.543);
+}

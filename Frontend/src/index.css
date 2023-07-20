@@ -2,10 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
+body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-    font-family:  monospace;
+  font-family: monospace;
+  background-color: rgb(161 0 0);
+}
 
+*{
+  font-size: 25px;
 }

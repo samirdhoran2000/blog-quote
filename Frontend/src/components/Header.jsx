@@ -23,7 +23,7 @@ const Header = () => {
             >
               <BiSearchAlt2 />
             </IconContext.Provider>
-            <input type="text" id="search-box" />
+            <input type="text" id="search-box" placeholder='Search' />
           </div>
         </div>
       </div>

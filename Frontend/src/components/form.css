@@ -1,0 +1,41 @@
+.outer-main-container-form{
+    display: flex;
+height: 100vh;
+/* width: 100%; */
+background-color: rgba(255, 255, 255, 0.226);
+padding: 10px;
+justify-content: flex-end;
+/* align-items: center; */
+}
+.inner-main-container-form{
+box-sizing: border-box;
+padding: 10px;
+background-color: rgba(255, 255, 255, 0.299);
+/* max-width: 500px; */
+border-radius: 10px;
+}
+
+.name input{
+background-color: rgba(255, 255, 255, 0.32);
+outline: none;
+padding: 4px 0 4px 20px;
+margin: 5px;
+border-radius: 10px;
+}
+
+.focused-input:focus{
+    border: 1px solid rgb(0, 0, 0);
+
+}
+
+.name input::placeholder{
+    color: #0000009a;
+}
+
+.number-input::-webkit-inner-spin-button, .number-input::-webkit-outer-spin-button{
+-webkit-appearance: none;
+}
+
+.radio-button:hover{
+cursor: pointer;
+}

@@ -3,7 +3,7 @@ import "./navigation.css";
 const NAVIGATION = ["home", "explore", "contact us", "about us"];
 const Navigation = () => {
 
-    const [nav, setNav] = useState('');
+    const [nav, setNav] = useState('home');
 
     const onSelectNav = (element) => {
         console.log(element);
@@ -23,7 +23,8 @@ const Navigation = () => {
                 }}
                 className="capitalize"
                 style={{
-                    backgroundColor: nav === element ? 'rgb(173, 40, 40)':'transparent' 
+                    backgroundColor: nav === element ? 'rgb(173, 40, 40)' : 'rgb(92, 15, 15)' ,
+                    border: nav === element ? '1px solid white':'none' 
                 }}
               >
                 {element}
