@@ -1,0 +1,9 @@
+.footer-main-container{
+    position:  relative;
+    /* bottom: 0; */
+
+    /* font-size: 44px; */
+    background-color: rgb(2, 77, 13);
+    width: 100vw;
+    height: 200px;
+}

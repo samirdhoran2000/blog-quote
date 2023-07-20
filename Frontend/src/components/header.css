@@ -1,0 +1,40 @@
+.main-header-container{
+background-color: rgb(118, 8, 8);
+display: flex;
+justify-content: space-between;
+padding: 0 10px;
+}
+.brand-name-logo{
+    font-size: 40px;
+}
+.navigation-bar{
+
+}
+.search-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#search-box{
+width: 170px;
+}
+
+.inside-search{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+    padding: 2px;
+    border-radius: 12px;
+
+}
+.inside-search input{
+    background-color: transparent;
+    font-size: 25px;
+}
+.inside-search input:focus{
+    outline: none;
+}
+/* .search-icon{
+    width: 100px;
+    height: 100px;
+} */
