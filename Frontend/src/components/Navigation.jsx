@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./navigation.css";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import NAVIGATION from '../Constant/navigation';
 
 const Navigation = () => {
@@ -17,23 +17,18 @@ const Navigation = () => {
       <ul className="navbar">
         {NAVIGATION.map((element) => {
           return (
-            <li
-              key={element.name}
-              onClick={() => {
-                onSelectNav(element);
-              }}
-              className="capitalize"
-              style={{
-                backgroundColor:
-                  nav === element.name ? "rgb(173, 40, 40)" : "rgb(92, 15, 15)",
-                border: nav === element.name ? "1px solid white" : "none",
-              }}
-            >
-              <Link to={`${element.to}`}>
-              {element.name}
-               
-              </Link>
-            </li>
+            <NavLink key={element.name} to={`${element.to}`}>
+              <li
+                key={element.name}
+                onClick={() => {
+                  onSelectNav(element);
+                }}
+                className="capitalize"
+                
+              >
+                {element.name}
+              </li>
+            </NavLink>
           );
         })}
       </ul>

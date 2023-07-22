@@ -1,0 +1,55 @@
+.quote-container{
+    padding: 5px 0;
+    margin: 10px;
+    height: 250px;
+    width: 450px;
+    background-color: rgba(255, 255, 255, 0.349);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.quote-body-container{
+    background-color: rgb(189, 189, 189);
+    /* height:  75%; */
+    z-index: 0;
+    word-wrap: break-word;
+    padding:5px;
+    /* width: 100%; */
+}
+
+.secondary-container{
+ 
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.728);
+    margin-top: 5px;
+padding: 0 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    z-index: 11;
+    border-top: 1px solid black;
+}
+
+.quote-heading{
+background-color: rgba(43, 43, 43, 0.76);
+color: white;
+border-bottom: 1px solid black;
+display: flex;
+flex-direction: row-reverse;
+padding-right: 10px;
+}
+
+.quote-icon{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.quote-views{
+    display: flex;
+    flex-direction: row;
+}
+

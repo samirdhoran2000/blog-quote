@@ -37,3 +37,7 @@ border-radius: 10px;
 .radio-button:hover{
 cursor: pointer;
 }
+
+form{
+    font-family: Arial, sans-serif;
+}

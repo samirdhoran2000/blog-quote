@@ -14,8 +14,15 @@ ul li{
     padding: 2px 4px;
     cursor: pointer;
     color: rgb(0, 0, 0);
+    background-color: rgb(92, 15, 15);
 }
 ul li:hover{
     background-color: rgb(173, 40, 40);
     /* color:aliceblue; */
+}
+
+.active li{
+     background-color: rgb(255, 74, 74);
+     border:1.3px solid white;
+     
 }

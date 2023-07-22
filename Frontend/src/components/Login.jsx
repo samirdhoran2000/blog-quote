@@ -1,7 +1,15 @@
+import { useState } from 'react';
 import './form.css';
 import './login.css';
 
 const Login = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  function onLogin(e){
+    e.preventDefault();
+    console.log({email,password});
+  }
   return (
     <div className="outer-main-container-form">
       <form action="" method="POST">
@@ -13,8 +21,12 @@ const Login = () => {
                 style={{
                   width: "100%",
                 }}
-                type="email"
-                placeholder="Email"
+              type="email"
+              value={email}
+              placeholder="Email"
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
               />
             </div>
           {/* </div>      */}
@@ -28,7 +40,11 @@ const Login = () => {
                   width: "100%",
                 }}
                 type="password"
+                value={password}
                 placeholder="Password"
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
                 
               />
             </div>
@@ -38,8 +54,8 @@ const Login = () => {
           <div>
             <div className="flex justify-center">
               <button
-                onClick={() => {
-                  
+                onClick={(e) => {
+                  onLogin(e);
                 }}
                 className=" "
                 type="submit"

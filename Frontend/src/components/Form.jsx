@@ -1,9 +1,19 @@
+import { useState } from "react";
 import "./form.css";
 const Form = () => {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [mobile, setMobile] = useState('');
+  const [dob, setDob] = useState('');
+  const [password, setPassword] = useState('');
+  const [gender, setGender] = useState('');
 
   const onRegister = (e) => {
     e.preventDefault();
-    console.log('event ', e);
+    console.log('event ', e.target.value);
+
+    console.log({firstName,lastName,email,mobile,dob,password,gender});
   };
   return (
     <div className="outer-main-container-form">
@@ -17,7 +27,11 @@ const Form = () => {
                 }}
                 className="focused-input"
                 type="text"
+                value={firstName}
                 placeholder="First Name"
+                onChange={(e) => {
+                  setFirstName(e.target.value);
+                }}
               />
               <input
                 style={{
@@ -25,22 +39,33 @@ const Form = () => {
                 }}
                 className="focused-input"
                 type="text"
+                value={lastName}
                 placeholder="Last Name"
+                onChange={(e) => {
+                  setLastName(e.target.value);
+                }}
               />
             </div>
           </div>
           {/* ...................................................................... */}
           <div>
-            <div className="name" style={{
-              padding:'0 20px 0 0'
-            }}>
+            <div
+              className="name"
+              style={{
+                padding: "0 20px 0 0",
+              }}
+            >
               <input
                 className="focused-input "
                 style={{
                   width: "100%",
                 }}
                 type="email"
+                value={email}
                 placeholder="Email"
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
               />
             </div>
           </div>
@@ -53,7 +78,11 @@ const Form = () => {
                 }}
                 className="focused-input number-input"
                 type="number"
+                value={mobile}
                 placeholder="Mobile No."
+                onChange={(e) => {
+                  setMobile(e.target.value);
+                }}
               />
               <input
                 className="focused-input"
@@ -61,13 +90,19 @@ const Form = () => {
                   width: "48%",
                 }}
                 type="date"
+                value={dob}
                 placeholder="Date of Birth"
+                onChange={(e) => {
+                  setDob(e.target.value);
+                }}
               />
             </div>
           </div>
           {/* ------------------------------------------- */}
           <div>
-            <div className="name">
+            <div className="name" onChange={(e) => {
+              setGender(e.target.value)
+            }}>
               <input
                 className="focused-input radio-button"
                 type="radio"
@@ -84,6 +119,24 @@ const Form = () => {
               Female
             </div>
           </div>
+          {/* ------------------------------------- */}
+          <div>
+            <div className="name">
+              <input
+                className="focused-input "
+                style={{
+                  width: "100%",
+                }}
+                type="password"
+                value={password}
+                placeholder="Password"
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+              />
+            </div>
+          </div>
+
           {/* ..................................................... */}
           <div>
             <div className="flex justify-center">
