@@ -28,6 +28,7 @@ width: 220px;
 .inside-search input{
     background-color: transparent;
     font-size: 25px;
+    padding-left: 10px;
 }
 .inside-search input:focus{
     outline: none;

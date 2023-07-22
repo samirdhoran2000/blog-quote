@@ -1,17 +1,28 @@
 import "./form.css";
 const Form = () => {
+
+  const onRegister = (e) => {
+    e.preventDefault();
+    console.log('event ', e);
+  };
   return (
     <div className="outer-main-container-form">
-      <form action="">
+      <form action="" method="POST">
         <div className="inner-main-container-form">
           <div>
             <div className="name">
               <input
+                style={{
+                  width: "48%",
+                }}
                 className="focused-input"
                 type="text"
                 placeholder="First Name"
               />
               <input
+                style={{
+                  width: "48%",
+                }}
                 className="focused-input"
                 type="text"
                 placeholder="Last Name"
@@ -20,7 +31,9 @@ const Form = () => {
           </div>
           {/* ...................................................................... */}
           <div>
-            <div className="name">
+            <div className="name" style={{
+              padding:'0 20px 0 0'
+            }}>
               <input
                 className="focused-input "
                 style={{
@@ -35,6 +48,9 @@ const Form = () => {
           <div>
             <div className="name">
               <input
+                style={{
+                  width: "48%",
+                }}
                 className="focused-input number-input"
                 type="number"
                 placeholder="Mobile No."
@@ -67,18 +83,24 @@ const Form = () => {
               />
               Female
             </div>
-                  </div>
-                  {/* ..................................................... */}
+          </div>
+          {/* ..................................................... */}
           <div>
             <div className="flex justify-center">
               <button
-                className="focused-input radio-button"
-                              type="submit"
-                              style={{
-                                  padding: "4px",
-                                  'background-color':'red','border-radius':'10px'
-                              }}
-              >Register</button>              
+                onClick={(e) => {
+                  onRegister(e);
+                }}
+                className=" "
+                type="submit"
+                style={{
+                  padding: "4px",
+                  backgroundColor: "red",
+                  borderRadius: "10px",
+                }}
+              >
+                Register
+              </button>
             </div>
           </div>
         </div>
