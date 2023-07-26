@@ -23,6 +23,10 @@ const NAVIGATION = [
     name: "Register",
     to: "/register",
   },
+  {
+    name: "Create Quote",
+    to: "/create-quote",
+  },
 ];
 
 

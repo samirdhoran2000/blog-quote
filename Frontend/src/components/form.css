@@ -13,7 +13,7 @@ width: 700px;
 border-radius: 10px;
 }
 
-.name input{
+.name input, .name textarea{
 background-color: rgba(255, 255, 255, 0.32);
 outline: none;
 padding: 4px 0 4px 20px;
@@ -26,8 +26,10 @@ border-radius: 10px;
 
 }
 
-.name input::placeholder{
+.name input::placeholder, .name textarea::placeholder{
     color: #0000009a;
+    margin: auto;
+    padding: auto;
 }
 
 .number-input::-webkit-inner-spin-button, .number-input::-webkit-outer-spin-button{

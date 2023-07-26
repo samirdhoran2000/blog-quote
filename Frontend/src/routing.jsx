@@ -5,6 +5,7 @@ import Contact from "./components/contact.jsx";
 import Register from "./components/Register.jsx";
 import Login from "./components/Login.jsx";
 import Explore from "./components/Explore.jsx";
+import CreateQuote from "./components/CreateQuote.jsx";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "/explore",
         element: <Explore />,
+      },
+      {
+        path: "/create-quote",
+        element: <CreateQuote />,
       },
     ],
   },
