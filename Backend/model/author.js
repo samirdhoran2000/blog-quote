@@ -15,15 +15,16 @@ const AuthorSchema = new mongoose.Schema({
   },
   email: {
     type: String,
+    unique:[true,"email is already exist "],
     required: [true, "email is required "],
     trim: true,
     lowercase: true,
   },
-  MobileNo: {
+  mobileNo: {
     type: Number,
     required: [true, "mobile no. is required "],
-      trim: true,
-    minlenght:[10, "length of digits is less than 10 digits"],
+    trim: true,
+    minLenght:[10, "length of digits is less than 10 digits"],
     maxlength:[13, "length of digits is greater than 13 digits"],
   },
   dateOfBirth: {
