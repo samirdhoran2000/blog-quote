@@ -4,6 +4,7 @@ const blogSchema = new mongoose.Schema(
   {
     authorId: {
       type: mongoose.Schema.Types.ObjectId,
+      ref:'Author',
       required: true,
     },
     body: {
@@ -11,7 +12,6 @@ const blogSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
-
     like: {
       type: [mongoose.Schema.Types.ObjectId],
       ref: "Author",

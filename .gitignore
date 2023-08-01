@@ -1,8 +1,8 @@
 *node_modules
 #-------------------backend--------------------
 # ./Backend/node_modules
-./Backend/.env
-
+# ./Backend/.env
+Backend/.env
 
 #-------------------frontend--------------------
 
