@@ -1,11 +1,14 @@
 const express = require("express");
+const cors = require('cors');
 const app = express();
 const {db}=require('./model/index.js')
 const PORT = process.env.PORT || 3000;
 
 const {router:authorRouter} =require('./routes/author.js')
 const { router: blogRouter } = require("./routes/blog.js");
-
+app.use(cors({
+origin:'*'
+}))
 app.use(express.json());
 app.use("/author", authorRouter);
 app.use("/blog", blogRouter);

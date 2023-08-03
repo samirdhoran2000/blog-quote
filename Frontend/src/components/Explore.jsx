@@ -3,6 +3,7 @@ import QuoteCard from "./QuoteCard"
 import Quotes from '../Constant/quoteCardData.js'
 
 const Explore = () => {
+  
   return (
     <>
       <div style={{

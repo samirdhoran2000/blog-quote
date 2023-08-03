@@ -1,15 +1,43 @@
-import { useState } from 'react';
-import './form.css'
-const CreateQuote = () => {
-  const [quote, setQuote] = useState('');
+import { useState } from "react";
+import "./form.css";
 
-  const CreateQuote = (e) => {
-    e.preventDefault();
-    console.log(e);
-    
-    console.log('quote',quote);
+const postQuote = async (data) => {
+  try {
+    const responce = await fetch("http://localhost:3000/blog", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+      body: JSON.stringify(data),
+    });
+
+    const result = await responce.json();
+    console.log("quote result of responce ", result);
+  } catch (error) {
+    console.log("error in post quote error ", error);
+    throw error;
   }
+};
+const CreateQuote = () => {
+  const [quote, setQuote] = useState("");
 
+  const handleCreateQuote = async (e) => {
+    try {
+      console.log(e);
+      e.preventDefault();
+
+      const data = await postQuote({
+        body: quote,
+        id: "64c8fc6914d53d3f7cedd6b2",
+      });
+
+      console.log(data);
+    } catch (error) {
+      console.log("error in post create quote ", error);
+      throw error;
+    }
+  };
   return (
     <div className="outer-main-container-form">
       <form action="" method="POST">
@@ -29,7 +57,6 @@ const CreateQuote = () => {
             >
               <textarea
                 rows={4}
-               
                 className="focused-input "
                 style={{
                   width: "100%",
@@ -38,7 +65,18 @@ const CreateQuote = () => {
                 value={quote}
                 placeholder="Quote"
                 onChange={(e) => {
+                  // console.log(e.key);
                   setQuote(e.target.value);
+                }}
+                onKeyDown={(e) => {
+                  console.log(e.key);
+
+                  if (e.key === "Enter") {
+                    postQuote({
+                      body: quote,
+                      id: "64c8fc6914d53d3f7cedd6b2",
+                    });
+                  }
                 }}
               />
             </div>
@@ -49,7 +87,7 @@ const CreateQuote = () => {
             <div className="flex justify-center">
               <button
                 onClick={(e) => {
-                  CreateQuote(e);
+                  handleCreateQuote(e);
                 }}
                 className=" "
                 type="submit"
@@ -67,6 +105,6 @@ const CreateQuote = () => {
       </form>
     </div>
   );
-}
+};
 
-export default CreateQuote
+export default CreateQuote;
