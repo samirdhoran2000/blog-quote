@@ -2,11 +2,14 @@ const Blog = require("../model/blog.js");
 
 const createBlog = async (req, res) => {
   try {
-    const { body, id } = req.body;
+    const { body } = req.body;
+    const passData = req.id;
+
+    console.log('pass data ', passData);
 
     const data = await Blog.create({
       body,
-      authorId: id,
+      authorId: passData
     });
     res.status(200).json({
       msg: "blog create successfully ",
@@ -21,7 +24,7 @@ const createBlog = async (req, res) => {
 };
 const getBlogs = async (req, res) => {
   try {
-    const data = await Blog.find();
+    const data = await Blog.find().populate('authorId');
     res.status(200).json({
       msg: "blog gets successfully ",
       data,
@@ -37,7 +40,15 @@ const getBlog = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const data = await Blog.findById(id);
+    const data = await Blog.findById(id).populate('authorId').exec((err, populateData) => {
+      if (err) {
+        console.log(err);
+        return;
+      }
+      console.log('populate data ',populateData);
+      
+    })
+    console.log(data);
     if (!data) {
       res.status(400).json({
         msg: "blog not found ",

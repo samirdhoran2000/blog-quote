@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./form.css";
+import { json } from "react-router-dom";
 const Form = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -9,11 +10,21 @@ const Form = () => {
   const [password, setPassword] = useState('');
   const [gender, setGender] = useState('');
 
-  const onRegister = (e) => {
+  const onRegister = async(e) => {
     e.preventDefault();
     console.log('event ', e.target.value);
 
-    console.log({firstName,lastName,email,mobile,dob,password,gender});
+    console.log({ firstName, lastName, email, mobile, dob, password, gender });
+    
+    const res = await fetch('http://localhost:3000/author', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ firstname:firstName, lastname:lastName, email, mobile, dob, password, gender })
+    });
+    const result = await res.json();
+    console.log(result);
   };
   return (
     <div className="outer-main-container-form">

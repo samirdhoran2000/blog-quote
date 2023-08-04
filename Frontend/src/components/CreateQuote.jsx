@@ -2,12 +2,14 @@ import { useState } from "react";
 import "./form.css";
 
 const postQuote = async (data) => {
+  const token = localStorage.getItem('token');
   try {
     const responce = await fetch("http://localhost:3000/blog", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*",
+        "authorization":`Bearer ${token}`
       },
       body: JSON.stringify(data),
     });
@@ -28,8 +30,7 @@ const CreateQuote = () => {
       e.preventDefault();
 
       const data = await postQuote({
-        body: quote,
-        id: "64c8fc6914d53d3f7cedd6b2",
+        body: quote
       });
 
       console.log(data);
@@ -57,6 +58,7 @@ const CreateQuote = () => {
             >
               <textarea
                 rows={4}
+                maxLength={120}
                 className="focused-input "
                 style={{
                   width: "100%",

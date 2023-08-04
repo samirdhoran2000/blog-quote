@@ -19,6 +19,10 @@ const loginAuth = async (req, res, next) => {
                     
                 } else {
                     console.log('middleware called ', decoded);
+
+                    const { id, ...rest } = decoded
+                    console.log("id in middleware ",id,'resstt  ',rest);
+                    req.id = id;
                     next();
                 }
             });

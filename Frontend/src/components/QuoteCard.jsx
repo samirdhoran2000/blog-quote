@@ -4,15 +4,15 @@ import { CiHeart,CiBookmark } from "react-icons/ci";
 import { BsEye } from "react-icons/bs";
 
 
-const QuoteCard = ({id, content, likes, views, author}) => {
+const QuoteCard = (data) => {
   return (
     <div className="quote-container" >
-      <div className="quote-heading capitalize">{author}</div>
+      <div className="quote-heading capitalize">{data.authorId.firstName} {data.authorId.lastName}</div>
       <div className="quote-body-container" style={{
         width:'100%'
       }}>
         <p>
-          {content}
+          {data.body}
         </p>
       </div>
       <div className="secondary-container">
@@ -31,7 +31,7 @@ const QuoteCard = ({id, content, likes, views, author}) => {
             <CiHeart /> <p style={{
               fontSize: '20px',
               margin:'auto'
-            }}>{likes}</p>
+            }}>{data.like.length}</p>
             
             <CiBookmark />
           </IconContext.Provider>
@@ -41,7 +41,7 @@ const QuoteCard = ({id, content, likes, views, author}) => {
             fontSize: '15px',
             margin: 'auto',
             padding:'3px'
-          }}>{views}</p>
+          }}>{45}</p>
           <IconContext.Provider
             value={{
               className: "search-icon",

@@ -15,10 +15,10 @@ const NAVIGATION = [
     name: "about us",
     to: "/about-us",
   },
-  {
-    name: "Login",
-    to: "/login",
-  },
+  // {
+  //   name: "Login",
+  //   to: "/login",
+  // },
   {
     name: "Register",
     to: "/register",
