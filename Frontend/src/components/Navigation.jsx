@@ -2,11 +2,20 @@ import { useState } from "react";
 import "./navigation.css";
 import { NavLink,useNavigate } from "react-router-dom";
 import NAVIGATION from '../Constant/navigation';
+import { useSelector, useDispatch } from "react-redux";
+import { login } from "../Store/testSlice";
+
 
 const Navigation = () => {
   const [nav, setNav] = useState("home");
   const navigate = useNavigate();
-const token = localStorage.getItem('token')
+  const token = localStorage.getItem('token')
+  const dispatch=useDispatch()
+  const isLogin = useSelector((state) => {
+    console.log("state is is ",state);
+    return state.login
+  });
+
   const onSelectNav = (element) => {
     console.log(element);
 
@@ -15,7 +24,7 @@ const token = localStorage.getItem('token')
   };
 
   const rederLoginLogout = () => {
-    if (token) {
+    if (token && isLogin) {
       return (
         
         <NavLink>
@@ -23,6 +32,7 @@ const token = localStorage.getItem('token')
             onClick={() => {
               localStorage.clear();
               navigate('/');
+              dispatch(login(false))
             }}
             className="capitalize"
           >

@@ -2,30 +2,39 @@ import { useState } from 'react';
 import './form.css';
 import './login.css';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import {login} from '../Store/testSlice.js'
+
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate=useNavigate()
+  const navigate = useNavigate()
+  const dispatch = useDispatch();
 
    const onLogin = async(e)=>{
     e.preventDefault();
-    try {
-      console.log({ email, password });
-
-      const res = await fetch("http://127.0.0.1:3000/author/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
-
+     try {
+       console.log({ email, password });
+       
+       const res = await fetch("http://127.0.0.1:3000/author/login", {
+         method: "POST",
+         headers: {
+           "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, password }),
+        });
+        
       const result = await res.json(res);
       console.log(result.token);
-
-      localStorage.setItem("token", result.token);
-      if(result)navigate("/explore");
+      
+       localStorage.setItem("token", result.token);
+       console.log(" login response ", res);
+       if (res.status==200) {
+        
+         dispatch(login(true));
+         navigate("/explore");
+       }
     } catch (error) {
       console.log(error);
     }
