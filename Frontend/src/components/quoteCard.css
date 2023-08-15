@@ -9,6 +9,8 @@
     flex-direction: column;
     justify-content: space-between;
     box-sizing: border-box;
+    overflow: hidden;
+    box-shadow: 5px 5px 10px black;
 }
 
 .quote-body-container{

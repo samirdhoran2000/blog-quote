@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "./form.css";
-import { json } from "react-router-dom";
 const Form = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -77,6 +76,7 @@ const Form = () => {
                 onChange={(e) => {
                   setEmail(e.target.value);
                 }}
+                pattern="[0-9]{0,10}"
               />
             </div>
           </div>
@@ -89,6 +89,7 @@ const Form = () => {
                 }}
                 className="focused-input number-input"
                 type="number"
+                max={12}
                 value={mobile}
                 placeholder="Mobile No."
                 onChange={(e) => {

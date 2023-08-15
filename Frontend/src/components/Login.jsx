@@ -27,9 +27,9 @@ const Login = () => {
         
       const result = await res.json(res);
       console.log(result.token);
-      
+      localStorage.setItem("authorId",result.authorId)
        localStorage.setItem("token", result.token);
-       console.log(" login response ", res);
+       console.log(" login response ", result);
        if (res.status==200) {
         
          dispatch(login(true));

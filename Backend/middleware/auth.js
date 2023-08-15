@@ -14,7 +14,8 @@ const loginAuth = async (req, res, next) => {
             jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
                 if (err) {
                     res.status(400).json({
-                        msg: "error while verifying token"
+                        msg: "error while verifying token",
+                        error:err
                     })
                     
                 } else {
