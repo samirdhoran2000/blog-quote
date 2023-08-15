@@ -45,6 +45,7 @@ const login = async (req, res) => {
               console.log(token);
               res.status(200).json({
                 msg: "login successful ",
+                authorId:data._doc._id,
                 token,
               });
           }

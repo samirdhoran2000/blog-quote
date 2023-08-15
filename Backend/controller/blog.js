@@ -119,5 +119,74 @@ const deleteBlog = async (req, res) => {
     });
   }
 };
+const likeBlog = async (req, res) => {
+  try {
+    const { blogId } = req.body;
+    console.log(blogId);
+    const authorId = req.id;
+    const data = await Blog.findById(blogId);
+    if (!data) {
+          res.status(400).json({
+            msg: "blog not found ",
+          });
+        return;
+    };
+    if (data.like.includes(authorId)) {
 
-module.exports = { createBlog, getBlogs, getBlog, updateBlog, deleteBlog };
+      const updatedBlog = await Blog.findByIdAndUpdate(
+        {
+          _id:blogId
+        },
+        {
+          $pull: {
+            like:authorId
+          }
+        },
+        {
+          new:true
+        }
+      )
+
+       return res.status(200).json({
+         msg: "You already like this blog and you unlike this blog successfully ",
+         data: updatedBlog,
+         like: false,
+       });
+    
+    }
+    const updatedBlog = await Blog.findByIdAndUpdate({
+      _id: blogId
+    },
+      {
+        $push: {
+        like:authorId
+      }
+      },
+      {
+      new:true
+    });
+    
+    console.log("likked data ", updatedBlog);
+    res.status(200).json({
+      msg: "blog liked successfully ",
+      data: updatedBlog,
+      like:true
+    });
+    
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({
+      msg: "something went wrong in blog like controller ",
+      error:error.message,
+    });
+  }
+};
+
+module.exports = {
+  createBlog,
+  getBlogs,
+  getBlog,
+  updateBlog,
+  deleteBlog,
+  likeBlog,
+};

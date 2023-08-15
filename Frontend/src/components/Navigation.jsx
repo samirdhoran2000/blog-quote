@@ -22,9 +22,23 @@ const Navigation = () => {
     setNav(element.name);
     console.log(nav);
   };
+  const renderExplore = () => {
+    if (isLogin) {
+      <NavLink to={`/expolre`}>
+        <li
+          onClick={() => {
+            onSelectNav({ name: "explore", to: "/login" });
+          }}
+          className="capitalize"
+        >
+          explore
+        </li>
+      </NavLink>;
+    }
+  }
 
   const rederLoginLogout = () => {
-    if (token && isLogin) {
+    if (token) {
       return (
         
         <NavLink>
@@ -76,7 +90,9 @@ const Navigation = () => {
             </NavLink>
           );
         })}
-            {rederLoginLogout()}
+        {rederLoginLogout()}
+        { renderExplore()}
+        
       </ul>
     </div>
   );
