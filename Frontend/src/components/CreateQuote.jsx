@@ -1,29 +1,33 @@
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import "./form.css";
 
-const postQuote = async (data) => {
-  const token = localStorage.getItem('token');
-  try {
-    const responce = await fetch("http://localhost:3000/blog", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-        "authorization":`Bearer ${token}`
-      },
-      body: JSON.stringify(data),
-    });
 
-    const result = await responce.json();
-    console.log("quote result of responce ", result);
-  } catch (error) {
-    console.log("error in post quote error ", error);
-    throw error;
-  }
-};
 const CreateQuote = () => {
   const [quote, setQuote] = useState("");
+  const navigate = useNavigate()
+  
+  const postQuote = async (data) => {
+    const token = localStorage.getItem("token");
+    try {
+      const responce = await fetch("http://localhost:3000/blog", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(data),
+      });
 
+      const result = await responce.json();
+      console.log("quote result of responce ", result);
+      navigate("/explore");
+    } catch (error) {
+      console.log("error in post quote error ", error);
+      throw error;
+    }
+  };
   const handleCreateQuote = async (e) => {
     try {
       console.log(e);

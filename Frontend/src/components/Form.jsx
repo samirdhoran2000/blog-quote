@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {useNavigate} from 'react-router-dom'
 import "./form.css";
 const Form = () => {
   const [firstName, setFirstName] = useState('');
@@ -8,22 +9,47 @@ const Form = () => {
   const [dob, setDob] = useState('');
   const [password, setPassword] = useState('');
   const [gender, setGender] = useState('');
+  const navigate = useNavigate();
 
   const onRegister = async(e) => {
     e.preventDefault();
-    console.log('event ', e.target.value);
+    try {
+      console.log("event ", e.target.value);
 
-    console.log({ firstName, lastName, email, mobile, dob, password, gender });
+      console.log({
+        firstName,
+        lastName,
+        email,
+        mobile,
+        dob,
+        password,
+        gender,
+      });
+
+      const res = await fetch("http://localhost:3000/author", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          firstname: firstName,
+          lastname: lastName,
+          email,
+          mobile,
+          dob,
+          password,
+          gender,
+        }),
+      });
+      const result = await res.json();
+      console.log(result);
+
+      navigate('/login')
+
+    } catch (error) {
+      console.log('error in registration ', error);
+    }
     
-    const res = await fetch('http://localhost:3000/author', {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ firstname:firstName, lastname:lastName, email, mobile, dob, password, gender })
-    });
-    const result = await res.json();
-    console.log(result);
   };
   return (
     <div className="outer-main-container-form">
